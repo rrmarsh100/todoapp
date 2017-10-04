@@ -6,8 +6,7 @@ function onReady() {
   addToDoForm.addEventListener('submit', (event) => {
      event.preventDefault();
 
-     addToDoForm.addEventListener('delete', (event) => {
-        event.preventDefault();
+
 
       let title = newToDoText.value;
 
@@ -27,7 +26,10 @@ function onReady() {
 
   });
 
-}
+  addToDoForm.addEventListener('delete', (event) => {
+
+
+});
 
 
 window.onload = function() {
