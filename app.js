@@ -1,60 +1,44 @@
 function onReady() {
+  const toDos = [];
   const addToDoForm = document.getElementById('addToDoForm');
-  const newToDoText = document.getElementById('newToDoText');
-  const toDoList = document.getElementById('toDoList');
 
-  addToDoForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    // console.log('event', event);
+  function createNewToDo() {
+      const newToDoText = document.getElementById('newToDoText');
+      if (!newToDoText) { return }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> seven
-
-    let title = newToDoText.value;
-
-    let newLi = document.createElement('li');
-
-    let checkbox = document.createElement('input');
-
-    let deleteButton = document.createElement('button');
-
-    checkbox.type = "checkbox";
-
-    deleteButton.textContent = "Delete";
-
-    deleteButton.addEventListener('click' , (event) => {
-      console.log('delete button clicked', event.target.parentElement);
-      event.target.parentElement.remove();
+      toDos.push({
+      title: newToDoText.value,
+      complete: false
     });
+     newToDoText.value = '';
+ }
+ function renderTheUI(toDos) {
+    const todoList = document.getElementById('toDoList');
 
-    newLi.textContent = title;
+     toDoList.textContent = '';
 
-    newLi.appendChild(checkbox);
-    newLi.appendChild(deleteButton);
+     renderTheUI(toDos);
 
-    // newLi.appendChild(checkbox);
-    // console.log('newLi', newLi);
-    toDoList.appendChild(newLi);
-    newToDoText.value = '';
+    toDos.forEach(function(toDo) {
+      const newLi = document.createElement('li');
+      const checkbox = document.createElement('input');
+      checkbox.type = "checkbox";
 
-  });
+      newLi.textContent = toDo.title;
 
-<<<<<<< HEAD
-  addToDoForm.addEventListener('delete', (event) => {
+      todoList.appendChild(newLi);
+     newLi.appendChild(checkbox);
+    });
+   }
 
-
-});
-
-
-window.onload = function() {
-    onReady();
-=======
+ addToDoForm.addEventListener('submit', event => {
+   event.preventDefault();
+   createNewToDo();
+ });
+  renderTheUI(toDos);
 };
 
 
 window.onload = function() {
   onReady();
->>>>>>> seven
 };
