@@ -4,28 +4,44 @@ function onReady() {
   const toDoList = document.getElementById('toDoList');
 
   addToDoForm.addEventListener('submit', (event) => {
-     event.preventDefault();
+    event.preventDefault();
+    // console.log('event', event);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> seven
 
-      let title = newToDoText.value;
+    let title = newToDoText.value;
 
-      let newLi = document.createElement('li');
+    let newLi = document.createElement('li');
 
-      let checkbox = document.createElement('input');
+    let checkbox = document.createElement('input');
 
-      checkbox.type = "checkbox";
+    let deleteButton = document.createElement('button');
 
-      newLi.textContent = title;
+    checkbox.type = "checkbox";
 
-      newLi.appendChild(checkbox);
+    deleteButton.textContent = "Delete";
 
-      newLi.appendChild(checkbox);
+    deleteButton.addEventListener('click' , (event) => {
+      console.log('delete button clicked', event.target.parentElement);
+      event.target.parentElement.remove();
+    });
 
-      newToDoText.value = '';
+    newLi.textContent = title;
+
+    newLi.appendChild(checkbox);
+    newLi.appendChild(deleteButton);
+
+    // newLi.appendChild(checkbox);
+    // console.log('newLi', newLi);
+    toDoList.appendChild(newLi);
+    newToDoText.value = '';
 
   });
 
+<<<<<<< HEAD
   addToDoForm.addEventListener('delete', (event) => {
 
 
@@ -34,4 +50,11 @@ function onReady() {
 
 window.onload = function() {
     onReady();
+=======
+};
+
+
+window.onload = function() {
+  onReady();
+>>>>>>> seven
 };
