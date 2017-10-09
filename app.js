@@ -25,8 +25,17 @@ function onReady() {
       const newLi = document.createElement('li');
       const checkbox = document.createElement('input');
       checkbox.type = "checkbox";
+
       newLi.textContent = toDo.title;
 
+      // const deleteButton = document.createElement("delete")
+      //
+      // deleteButton.textContent = "Delete";
+      //
+      // deleteButton.addEventListener('click' , (event) => {
+      //   console.log('delete button clicked', event.target.parentElement);
+      //   event.target.parentElement.remove();
+      // });
       todoList.appendChild(newLi);
       newLi.appendChild(checkbox);
     });
@@ -37,6 +46,8 @@ function onReady() {
   });
   renderTheUI(toDos);
 }
+
+
 window.onload = function() {
   onReady();
 };
