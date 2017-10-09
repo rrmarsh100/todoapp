@@ -25,7 +25,6 @@ function onReady() {
       const newLi = document.createElement('li');
       const checkbox = document.createElement('input');
       checkbox.type = "checkbox";
-
       newLi.textContent = toDo.title;
 
       todoList.appendChild(newLi);
