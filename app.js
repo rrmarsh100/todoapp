@@ -32,6 +32,11 @@ function onReady() {
 
       deleteButton.textContent = "Delete";
 
+      deleteButton.addEventListener('click' , (event) => {
+        console.log('delete button clicked', event.target.parentElement);
+        event.target.parentElement.remove();
+      });
+
 
       todoList.appendChild(newLi);
       newLi.appendChild(checkbox);
@@ -43,10 +48,7 @@ function onReady() {
     event.preventDefault();
     createNewToDo();
   });
-  deleteButton.addEventListener('click' , (event) => {
-    console.log('delete button clicked', event.target.parentElement);
-    event.target.parentElement.remove();
-  });
+
   renderTheUI(toDos);
 }
 
