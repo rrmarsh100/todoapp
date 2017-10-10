@@ -28,21 +28,24 @@ function onReady() {
 
       newLi.textContent = toDo.title;
 
-      // const deleteButton = document.createElement("delete")
-      //
-      // deleteButton.textContent = "Delete";
-      //
-      // deleteButton.addEventListener('click' , (event) => {
-      //   console.log('delete button clicked', event.target.parentElement);
-      //   event.target.parentElement.remove();
-      // });
+      const deleteButton = document.createElement("button")
+
+      deleteButton.textContent = "Delete";
+
+
       todoList.appendChild(newLi);
       newLi.appendChild(checkbox);
+      newLi.appendChild(deleteButton)
     });
+
   }
   addToDoForm.addEventListener('submit', event => {
     event.preventDefault();
     createNewToDo();
+  });
+  deleteButton.addEventListener('click' , (event) => {
+    console.log('delete button clicked', event.target.parentElement);
+    event.target.parentElement.remove();
   });
   renderTheUI(toDos);
 }
